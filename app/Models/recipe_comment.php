@@ -8,4 +8,7 @@ class recipe_comment extends Model
 {
     protected $table = 'recipe_comment';
     protected $fillable = ['recipe_id','comment'];
+    public function recipe(){
+        return $this->belongsTo(recipe::class,'id');
+    }
 }
