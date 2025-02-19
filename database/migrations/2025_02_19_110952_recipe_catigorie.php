@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("Catigorie",function (Blueprint $table) {
+        schema::create("recipe_catigorie",function(Blueprint $table){
             $table->id();
-            $table->string("name");
+            $table->integer("recipe_id");
+            $table->integer("carigorie_id");
+            $table->foreign("recipe_id")->references("id")->on("Recipe");
+            $table->foreign("carigorie_id")->references("id")->on("Recipe");
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("Catigorie");
+        Schema::dropIfExists("recipe_catigorie");
     }
 };
