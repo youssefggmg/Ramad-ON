@@ -9,7 +9,7 @@ class post_comment extends Model
 {
     //
     protected $table = 'post_comment';
-    protected $fillable = ['post_id','comment'];
+    protected $fillable = ['post_id','content'];
     public function post():BelongsTo
     {
         return $this->belongsTo(Post::class, 'id'); 

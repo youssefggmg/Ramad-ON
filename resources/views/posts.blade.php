@@ -15,13 +15,19 @@
 </head>
 
 <body class="font-sans text-black! bg-white! antialiased dark:bg-black dark:text-white/50">
+    {{-- header --}}
     <x-header></x-header>
     <div class=" flex">
+        {{-- sidebar --}}
         <x-sidebar></x-sidebar>
         <div class="w-full p-4">
+            {{-- create post form --}}
             <x-post.createpost></x-post.createpost>
             <div class="space-y-4">
-                <x-post.post></x-post.post>
+                {{-- post card --}}
+                @foreach ($allPosts as $post )
+                <x-post.post :post="$post" />
+                @endforeach
             </div>
         </div>
     </div>
