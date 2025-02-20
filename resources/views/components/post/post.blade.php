@@ -36,11 +36,12 @@
 <div class="flex gap-3 mb-6">
     <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Current user" class="h-8 w-8 rounded-full" />
     <div class="flex-1">
-        <form action="">
-            <input type="number" hidden value="{{$post->id}}">
-            <input type="text" required placeholder="Write a comment..."
+        <form action="/create/postComment" method="POST">
+            @csrf
+            <input type="number" name="Post_id" hidden value="{{$post->id}}">
+            <input type="text" name="content" required placeholder="Write a comment..."
             class=" px-4 py-2 rounded-full bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">send</button>
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">send</button>
         </form>
     </div>
 </div>
@@ -53,31 +54,8 @@
             <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="John" class="h-8 w-8 rounded-full" />
             <div class="flex-1">
                 <div class="bg-gray-100 rounded-2xl px-4 py-2 inline-block">
-                    <div class="font-semibold text-sm">John Doe</div>
-                    <div class="text-sm">This is amazing! 🎉</div>
-                </div>
-
-                <div class="flex gap-4 text-sm text-gray-500 mt-1 px-4">
-                    <button class="font-semibold hover:text-blue-600">Like</button>
-                    <button class="font-semibold">Reply</button>
-                    <span>2h</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Comment 2 -->
-        <div class="flex gap-3">
-            <img src="/api/placeholder/32/32" alt="Alice" class="h-8 w-8 rounded-full" />
-            <div class="flex-1">
-                <div class="bg-gray-100 rounded-2xl px-4 py-2 inline-block">
-                    <div class="font-semibold text-sm">Alice Johnson</div>
-                    <div class="text-sm">Great work on this!</div>
-                </div>
-
-                <div class="flex gap-4 text-sm text-gray-500 mt-1 px-4">
-                    <button class="font-semibold hover:text-blue-600">Like</button>
-                    <button class="font-semibold">Reply</button>
-                    <span>30m</span>
+                    <div class="font-semibold text-sm">user</div>
+                    <div class="text-sm">{{$comment->content}}</div>
                 </div>
             </div>
         </div>
