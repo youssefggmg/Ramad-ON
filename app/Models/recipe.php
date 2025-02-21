@@ -8,6 +8,7 @@ class recipe extends Model
 {
     protected $table = 'Recipe';
     protected $fillable = ["title","description","image"];
+    public $timestamps = false ;
     public function catigorie()  {
         return $this->belongsTo(catigorie::class,"id");
     }

@@ -22,9 +22,7 @@
         <div class="w-full p-4">
             <div class="space-y-4">
                 {{-- post card --}}
-                @foreach ($recipes as $recipe)
-                    <x-recipe.recipe :recipe="$recipe" />
-                @endforeach
+                <x-recipe.makerecipe :catigorys="$catigorys" />
             </div>
         </div>
     </div>
