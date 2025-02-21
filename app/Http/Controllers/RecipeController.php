@@ -25,7 +25,7 @@ class RecipeController extends Controller
         recipe::create([
             'title' => $request->input('title'),
             'description' => $request->input('content'),
-            'catigorie_id' => $request->input('category'),
+            'fk_carigorei_id' => $request->input('category'),
         ]);
         return redirect("/recipe");
     }
